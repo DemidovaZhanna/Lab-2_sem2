@@ -17,8 +17,8 @@ using namespace std;
 
 template<typename T>
 ostream& operator<< (ostream & out, const DynamicArray<T>& a) //обязательно ли писать 3 одинаковых оператора для разных классов?
-{														      //или есть другой способ?
-	for (int i = 0; i < a.getLength(); ++i)				      //шаблон для всех не сработал(
+							      //или есть другой способ?
+	for (int i = 0; i < a.getLength(); ++i)		      //шаблон для всех не сработал(
 		out << a[i] << " ";
 	return out;
 }
