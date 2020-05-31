@@ -40,9 +40,36 @@ void interface_queue() {
 	cout << "Write down size of queue: ";
 	cin >> data;
 
-	auto Int = creation<int>(cmd == "Integer", data);
-	auto Real = creation<double>(cmd == "Real", data);
-	auto Str = creation<string>(cmd == "String", data);
+//	auto Int = creation<int>(cmd == "Integer", data);
+//	auto Real = creation<double>(cmd == "Real", data);
+//	auto Str = creation<string>(cmd == "String", data);
+
+	string *a = new string[data];
+
+	int *ress = new int[data];
+	double *doub = new double[data];
+
+		cout << "Enter the values of the queue: ";
+		for (int i = 0; i < data; i++) {
+			cin >> a[i];
+
+			while(1) {
+				try {
+					if (cmd == "Integer")
+						ress[i] = stoi(a[i]);
+					if (cmd == "Real")
+						doub[i] = stod(a[i]);
+					break;
+				}
+				catch (std::invalid_argument&) {
+					cout << "The value was entered incorrectly " << endl;
+					cin >> a[i];
+				}
+			}
+		}
+	auto Int = Queue<int>(ress, data);
+	auto Real = Queue<double>(doub, data);
+	auto Str = Queue<string>(a, data);
 
 	cout << "What do you want to do with queue? (Select the item number)" << endl;
 	cout << "1. Add an item by index\n" << "2. Get an item by index\n"
@@ -50,10 +77,10 @@ void interface_queue() {
 		 << "5. Remove the first element\n" << "6. Remove the last element\n"
 		 << "7. Remove queue\n";
 
-	int a;
-	cin >> a;
+	int input;
+	cin >> input;
 
-	if (a == 1) {
+	if (input == 1) {
 		cout << "Write the index: ";
 		int index;
 		cin >> index;
@@ -102,15 +129,15 @@ void interface_queue() {
 		}
 
 		cout << "Select the item number: ";
-		cin >> a;
+		cin >> input;
 	}
 
-	if (a == 2) {
+	if (input == 2) {
 		cout << "Write the index: ";
 		int index;
 		cin >> index;
 
-		while (index > data || index < 0) {
+		if (index > data || index < 0) {
 			cout << "Try again: ";
 			cin >> index;
 		}
@@ -131,10 +158,10 @@ void interface_queue() {
 		}
 
 		cout << "Select the item number: ";
-		cin >> a;
+		cin >> input;
 	}
 
-	if (a == 3) {
+	if (input == 3) {
 		if (cmd == "Integer")
 			cout << "Length is " << Int.getLength() << endl;
 		if (cmd == "Real")
@@ -143,10 +170,10 @@ void interface_queue() {
 			cout << "Length is " << Str.getLength() << endl;
 
 		cout << "Select the item number: ";
-		cin >> a;
+		cin >> input;
 	}
 
-	if (a == 4) {
+	if (input == 4) {
 		if (cmd == "Integer") {
 			bool len = Int.empty();
 			if (len == 1)
@@ -172,10 +199,10 @@ void interface_queue() {
 		}
 
 		cout << "Select the item number: ";
-		cin >> a;
+		cin >> input;
 	}
 
-	if (a == 5) {
+	if (input == 5) {
 		if (cmd == "Integer") {
 			Int.pop_front();
 			cout << Int << endl;
@@ -192,10 +219,10 @@ void interface_queue() {
 		}
 
 		cout << "Select the item number: ";
-		cin >> a;
+		cin >> input;
 	}
 
-	if (a == 6) {
+	if (input == 6) {
 		if (cmd == "Integer") {
 			Int.pop_back();
 			cout << Int << endl;
@@ -212,10 +239,10 @@ void interface_queue() {
 		}
 
 		cout << "Select the item number: ";
-		cin >> a;
+		cin >> input;
 	}
 
-	if (a == 7) {
+	if (input == 7) {
 		if (cmd == "Integer")
 			Int.erase();
 
