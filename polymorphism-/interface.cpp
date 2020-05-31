@@ -58,28 +58,45 @@ void interface_queue() {
 		int index;
 		cin >> index;
 
-		if (index > data || index < 0) {
+		while (index > data || index < 0) {
 			cout << "Try again: ";
 			cin >> index;
 		}
 
 		cout << "Write value: ";
+		string value;
+		cin >> value;
 
 		if (cmd == "Integer") {
-			int value;
-			cin >> value;
-			Int.Assign(index, value);
+
+			int val;
+			while(1) {
+				try {
+					val = stoi(value);
+					break;
+				}
+				catch (std::invalid_argument&) {
+					cout << "Enter integer values: "<< endl;
+					cin >> value;
+				}
+			}
+
+			Int.Assign(index, val);
 			cout << Int << endl;
 		}
+
 		if (cmd == "Real") {
-			double value;
-			cin >> value;
-			Real.Assign(index, value);
+
+			try { stod(value);}
+			catch (std::invalid_argument&) {
+				cout << "Enter integer values: " << endl;
+				cin >> value;
+			}
+
+			Real.Assign(index, stod(value));
 			cout << Real << endl;
 		}
 		if (cmd == "String") {
-			string value;
-			cin >> value;
 			Str.Assign(index, value);
 			cout << Str << endl;
 		}
@@ -93,7 +110,7 @@ void interface_queue() {
 		int index;
 		cin >> index;
 
-		if (index > data || index < 0) {
+		while (index > data || index < 0) {
 			cout << "Try again: ";
 			cin >> index;
 		}
