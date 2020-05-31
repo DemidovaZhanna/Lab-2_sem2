@@ -11,20 +11,6 @@ ostream& operator<< (ostream & out, const Queue<T>& a)
 	return out;
 }
 
-template<typename F>
-Queue<F> creation(bool condition, int data) {
-	F *a = new F[data];
-
-	if(condition) {
-		cout << "Enter the values of the queue: ";
-		for (int i = 0; i < data; i++)
-			cin >> a[i];
-	}
-
-	auto qu = Queue<F>(a, data);
-	return qu;
-}
-
 void interface_queue() {
 
 	cout << "Choose a type of queue: Integer / Real / String" << endl;
@@ -39,10 +25,6 @@ void interface_queue() {
 	int data = 0;
 	cout << "Write down size of queue: ";
 	cin >> data;
-
-//	auto Int = creation<int>(cmd == "Integer", data);
-//	auto Real = creation<double>(cmd == "Real", data);
-//	auto Str = creation<string>(cmd == "String", data);
 
 	string *a = new string[data];
 
