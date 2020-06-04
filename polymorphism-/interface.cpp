@@ -230,7 +230,6 @@ void interface_queue() {
 
 		if (cmd == "Real")
 			Real.erase();
-		cout << "The queue is erased" << endl;
 
 		if (cmd == "String")
 			Str.erase();
