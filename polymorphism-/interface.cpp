@@ -63,179 +63,179 @@ void interface_queue() {
 	cin >> input;
 
 	while(1) {
-	if (input == 1) {
-		cout << "Write the index: ";
-		int index;
-		cin >> index;
-
-		while (index > data || index < 0) {
-			cout << "Try again: ";
+		if (input == 1) {
+			cout << "Write the index: ";
+			int index;
 			cin >> index;
-		}
 
-		cout << "Write value: ";
-		string value;
-		cin >> value;
+			while (index > data || index < 0) {
+				cout << "Try again: ";
+				cin >> index;
+			}
 
-		if (cmd == "Integer") {
+			cout << "Write value: ";
+			string value;
+			cin >> value;
 
-			int val;
-			while(1) {
-				try {
-					val = stoi(value);
-					break;
+			if (cmd == "Integer") {
+
+				int val;
+				while(1) {
+					try {
+						val = stoi(value);
+						break;
+					}
+					catch (std::invalid_argument&) {
+						cout << "Enter integer values: "<< endl;
+						cin >> value;
+					}
 				}
+
+				Int.Assign(index, val);
+				cout << Int << endl;
+			}
+
+			if (cmd == "Real") {
+
+				try { stod(value);}
 				catch (std::invalid_argument&) {
-					cout << "Enter integer values: "<< endl;
+					cout << "Enter integer values: " << endl;
 					cin >> value;
 				}
+
+				Real.Assign(index, stod(value));
+				cout << Real << endl;
+			}
+			if (cmd == "String") {
+				Str.Assign(index, value);
+				cout << Str << endl;
 			}
 
-			Int.Assign(index, val);
-			cout << Int << endl;
+			cout << "Select the item number: ";
+			cin >> input;
 		}
 
-		if (cmd == "Real") {
-
-			try { stod(value);}
-			catch (std::invalid_argument&) {
-				cout << "Enter integer values: " << endl;
-				cin >> value;
-			}
-
-			Real.Assign(index, stod(value));
-			cout << Real << endl;
-		}
-		if (cmd == "String") {
-			Str.Assign(index, value);
-			cout << Str << endl;
-		}
-
-		cout << "Select the item number: ";
-		cin >> input;
-	}
-
-	if (input == 2) {
-		cout << "Write the index: ";
-		int index;
-		cin >> index;
-
-		if (index >= data || index < 0) {
-			cout << "Try again: ";
+		if (input == 2) {
+			cout << "Write the index: ";
+			int index;
 			cin >> index;
+
+			if (index >= data || index < 0) {
+				cout << "Try again: ";
+				cin >> index;
+			}
+
+			if (cmd == "Integer") {
+				int in = Int.Get(index);
+				cout << in << endl;
+			}
+
+			if (cmd == "Real") {
+				double in = Real.Get(index);
+				cout << in << endl;
+			}
+
+			if (cmd == "String") {
+				string in = Str.Get(index);
+				cout << in << endl;
+			}
+
+			cout << "Select the item number: ";
+			cin >> input;
 		}
 
-		if (cmd == "Integer") {
-			int in = Int.Get(index);
-			cout << in << endl;
+		if (input == 3) {
+			if (cmd == "Integer")
+				cout << "Length is " << Int.getLength() << endl;
+			if (cmd == "Real")
+				cout << "Length is " << Real.getLength() << endl;
+			if (cmd == "String")
+				cout << "Length is " << Str.getLength() << endl;
+
+			cout << "Select the item number: ";
+			cin >> input;
 		}
 
-		if (cmd == "Real") {
-			double in = Real.Get(index);
-			cout << in << endl;
+		if (input == 4) {
+			if (cmd == "Integer") {
+				int len = Int.empty();
+				if (len == 1)
+					cout << "Queue is empty" << endl;
+				else
+					cout << "Length greater than 0" << endl;
+			}
+
+			if (cmd == "Real") {
+				int len = Real.empty();
+				if (len == 1)
+					cout << "Queue is empty " << endl;
+				else
+					cout << "Length greater than 0" << endl;
+			}
+
+			if (cmd == "String") {
+				int len = Str.empty();
+				if (len == 1)
+					cout << "Queue is empty " << endl;
+				else
+					cout << "Length greater than 0" << endl;
+			}
+
+			cout << "Select the item number: ";
+			cin >> input;
 		}
 
-		if (cmd == "String") {
-			string in = Str.Get(index);
-			cout << in << endl;
+		if (input == 5) {
+			if (cmd == "Integer") {
+				Int.pop_front();
+				cout << Int << endl;
+			}
+
+			if (cmd == "Real") {
+				Real.pop_front();
+				cout << Real << endl;
+			}
+
+			if (cmd == "String") {
+				Str.pop_front();
+				cout << Str << endl;
+			}
+
+			cout << "Select the item number: ";
+			cin >> input;
 		}
 
-		cout << "Select the item number: ";
-		cin >> input;
-	}
+		if (input == 6) {
+			if (cmd == "Integer") {
+				Int.pop_back();
+				cout << Int << endl;
+			}
 
-	if (input == 3) {
-		if (cmd == "Integer")
-			cout << "Length is " << Int.getLength() << endl;
-		if (cmd == "Real")
-			cout << "Length is " << Real.getLength() << endl;
-		if (cmd == "String")
-			cout << "Length is " << Str.getLength() << endl;
+			if (cmd == "Real") {
+				Real.pop_back();
+				cout << Real << endl;
+			}
 
-		cout << "Select the item number: ";
-		cin >> input;
-	}
+			if (cmd == "String") {
+				Str.pop_back();
+				cout << Str << endl;
+			}
 
-	if (input == 4) {
-		if (cmd == "Integer") {
-			int len = Int.empty();
-			if (len == 1)
-				cout << "Queue is empty" << endl;
-			else
-				cout << "Length greater than 0" << endl;
+			cout << "Select the item number: ";
+			cin >> input;
 		}
 
-		if (cmd == "Real") {
-			int len = Real.empty();
-			if (len == 1)
-				cout << "Queue is empty " << endl;
-			else
-				cout << "Length greater than 0" << endl;
+		if (input == 7) {
+			if (cmd == "Integer")
+				Int.erase();
+
+			if (cmd == "Real")
+				Real.erase();
+
+			if (cmd == "String")
+				Str.erase();
+
+			cout << "The queue is erased" << endl;
 		}
-
-		if (cmd == "String") {
-			int len = Str.empty();
-			if (len == 1)
-				cout << "Queue is empty " << endl;
-			else
-				cout << "Length greater than 0" << endl;
-		}
-
-		cout << "Select the item number: ";
-		cin >> input;
-	}
-
-	if (input == 5) {
-		if (cmd == "Integer") {
-			Int.pop_front();
-			cout << Int << endl;
-		}
-
-		if (cmd == "Real") {
-			Real.pop_front();
-			cout << Real << endl;
-		}
-
-		if (cmd == "String") {
-			Str.pop_front();
-			cout << Str << endl;
-		}
-
-		cout << "Select the item number: ";
-		cin >> input;
-	}
-
-	if (input == 6) {
-		if (cmd == "Integer") {
-			Int.pop_back();
-			cout << Int << endl;
-		}
-
-		if (cmd == "Real") {
-			Real.pop_back();
-			cout << Real << endl;
-		}
-
-		if (cmd == "String") {
-			Str.pop_back();
-			cout << Str << endl;
-		}
-
-		cout << "Select the item number: ";
-		cin >> input;
-	}
-
-	if (input == 7) {
-		if (cmd == "Integer")
-			Int.erase();
-
-		if (cmd == "Real")
-			Real.erase();
-
-		if (cmd == "String")
-			Str.erase();
-
-		cout << "The queue is erased" << endl;
-	}
 	}
 }
