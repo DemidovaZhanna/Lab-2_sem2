@@ -22,7 +22,7 @@ void interface_queue() {
 		cin >> cmd;
 	}
 
-	int data = 0;
+	int data;
 	cout << "Write down size of queue: ";
 	cin >> data;
 
@@ -44,7 +44,7 @@ void interface_queue() {
 					break;
 				}
 				catch (std::invalid_argument&) {
-					cout << "The value was entered incorrectly " << endl;
+					cout << "The value was entered incorrectly. Enter this value again" << endl;
 					cin >> a[i];
 				}
 			}
@@ -62,6 +62,7 @@ void interface_queue() {
 	int input;
 	cin >> input;
 
+	while(1) {
 	if (input == 1) {
 		cout << "Write the index: ";
 		int index;
@@ -119,7 +120,7 @@ void interface_queue() {
 		int index;
 		cin >> index;
 
-		if (index > data || index < 0) {
+		if (index >= data || index < 0) {
 			cout << "Try again: ";
 			cin >> index;
 		}
@@ -157,7 +158,7 @@ void interface_queue() {
 
 	if (input == 4) {
 		if (cmd == "Integer") {
-			bool len = Int.empty();
+			int len = Int.empty();
 			if (len == 1)
 				cout << "Queue is empty" << endl;
 			else
@@ -165,7 +166,7 @@ void interface_queue() {
 		}
 
 		if (cmd == "Real") {
-			bool len = Real.empty();
+			int len = Real.empty();
 			if (len == 1)
 				cout << "Queue is empty " << endl;
 			else
@@ -173,7 +174,7 @@ void interface_queue() {
 		}
 
 		if (cmd == "String") {
-			bool len = Str.empty();
+			int len = Str.empty();
 			if (len == 1)
 				cout << "Queue is empty " << endl;
 			else
@@ -233,6 +234,8 @@ void interface_queue() {
 
 		if (cmd == "String")
 			Str.erase();
+
 		cout << "The queue is erased" << endl;
+	}
 	}
 }

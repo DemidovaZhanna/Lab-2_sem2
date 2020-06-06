@@ -15,7 +15,7 @@ public:
 	virtual const T& GetLast() const {return Get(getLength() - 1);}
 	virtual const T& Get(int index) const = 0;
 
-	virtual int getLength() const noexcept = 0;
+	virtual int getLength() const = 0;
 	virtual void Append(const T& item) = 0;
 	virtual void Prepend(const T& item) = 0;
 	virtual void InsertAt(const T& item, int index) = 0;

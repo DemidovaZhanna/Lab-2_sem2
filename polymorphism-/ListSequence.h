@@ -28,7 +28,7 @@ public:
 	Sequence<T>* Concat(Sequence <T> *seq) const;
 	Sequence<T>* operator+ (Sequence<T> *a) const {return Concat(a);}
 
-	int getLength() const noexcept {return _list->getLength();}
+	int getLength() const {return _list->getLength();}
 	void Append(const T& value) {_list->Append(value);}
 	void Prepend(const T& value) {_list->Prepend(value);}
 	void InsertAt(const T& value, int i) {_list->InsertAt(value, i);}

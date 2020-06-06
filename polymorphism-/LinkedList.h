@@ -143,7 +143,7 @@ void LinkedList<T>::Prepend(const T& data)
 template<typename T>
 void LinkedList<T>::InsertAt(const T& data, int index)
 {
-	if (index + 1 > size || index < 0)
+	if ((index + 1 > size || index < 0) && size != 1)
 		throw std::out_of_range ("Index out of range");
 
 	if (index == 0)
@@ -165,7 +165,7 @@ void LinkedList<T>::InsertAt(const T& data, int index)
 template<typename T>
 T &LinkedList<T>::operator[](const int index)
 {
-	if (index > size - 1 || index < 0)
+	if ((index + 1 > size || index < 0) && size != 1)
 		throw std::out_of_range ("Index out of range");
 
 	Node *current = this->head;
@@ -184,7 +184,7 @@ T &LinkedList<T>::operator[](const int index)
 template<typename T>
 const T &LinkedList<T>::operator[](const int index) const
 {
-	if (index + 1 > size || index < 0)
+	if ((index + 1 > size || index < 0) && size != 1)
 		throw std::out_of_range ("Index out of range");
 
 	Node *current = this->head;
