@@ -62,7 +62,7 @@ void interface_queue() {
 	int input;
 	cin >> input;
 
-	while(1) {
+	while(input != 8) {
 		if (input == 1) {
 			cout << "Write the index: ";
 			int index;
