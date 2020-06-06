@@ -57,12 +57,15 @@ void interface_queue() {
 	cout << "1. Add an item by index\n" << "2. Get an item by index\n"
 		 << "3. Get the length\n" << "4. Check empty queue\n"
 		 << "5. Remove the first element\n" << "6. Remove the last element\n"
-		 << "7. Remove queue\n";
+		 << "7. Remove queue\n" << "8. Exit\n";
 
 	int input;
-	cin >> input;
 
-	while(input != 8) {
+	do {
+
+		cout << "Select the item number: ";
+		cin >> input;
+
 		if (input == 1) {
 			cout << "Write the index: ";
 			int index;
@@ -219,8 +222,6 @@ void interface_queue() {
 
 			cout << "The queue is erased" << endl;
 		}
-
-		cout << "Select the item number: ";
-		cin >> input;
 	}
+	while (input != 8);
 }
