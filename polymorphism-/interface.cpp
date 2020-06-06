@@ -110,9 +110,6 @@ void interface_queue() {
 				Str.Assign(index, value);
 				cout << Str << endl;
 			}
-
-			cout << "Select the item number: ";
-			cin >> input;
 		}
 
 		if (input == 2) {
@@ -138,10 +135,7 @@ void interface_queue() {
 			if (cmd == "String") {
 				string in = Str.Get(index);
 				cout << in << endl;
-			}
-
-			cout << "Select the item number: ";
-			cin >> input;
+			}	
 		}
 
 		if (input == 3) {
@@ -151,9 +145,6 @@ void interface_queue() {
 				cout << "Length is " << Real.getLength() << endl;
 			if (cmd == "String")
 				cout << "Length is " << Str.getLength() << endl;
-
-			cout << "Select the item number: ";
-			cin >> input;
 		}
 
 		if (input == 4) {
@@ -180,9 +171,6 @@ void interface_queue() {
 				else
 					cout << "Length greater than 0" << endl;
 			}
-
-			cout << "Select the item number: ";
-			cin >> input;
 		}
 
 		if (input == 5) {
@@ -200,9 +188,6 @@ void interface_queue() {
 				Str.pop_front();
 				cout << Str << endl;
 			}
-
-			cout << "Select the item number: ";
-			cin >> input;
 		}
 
 		if (input == 6) {
@@ -220,9 +205,6 @@ void interface_queue() {
 				Str.pop_back();
 				cout << Str << endl;
 			}
-
-			cout << "Select the item number: ";
-			cin >> input;
 		}
 
 		if (input == 7) {
@@ -237,5 +219,8 @@ void interface_queue() {
 
 			cout << "The queue is erased" << endl;
 		}
+
+		cout << "Select the item number: ";
+		cin >> input;
 	}
 }
